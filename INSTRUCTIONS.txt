@@ -1,0 +1,27 @@
+TO RUN THE GAME
+
+1.  open terminal / command prompt
+2.  navigate to the folder the game is in using the cd command
+3.     run the game by typing      python3 Main.python3
+
+
+TO ADD ROOMS TO THE GAME
+
+edit the file     DataRooms.csv
+
+this file hold comma seperated values in the following order
+
+Room Number, Room Title, Rm Description, Rm No North (Number of Rm to North or None), Rm No South, Rm No East, Rm No West, Rm No Up, Rm No Down 
+
+for example the room below
+
+1, A Blue Room, You see a room is painted entirely sky blue, 2, None, None, None, 3, None
+
+Has a room number of 1
+A title ot 'A Blue Room'
+A Description of 'You see a room is painted entirely sky blue'
+If you go NORTH from this room you go to room Number 2
+If you go UP from this room you go to room Number 2
+You cannot go South, East, West or Down from this room (They have a 'None' Flag)
+
+

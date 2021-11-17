@@ -1,11 +1,17 @@
-TO RUN THE GAME
+############################ 
+####   TO RUN THE GAME   #### 
+############################ 
 
+0.  Either clone the git repo OR download as zip file and unzip
+---------
 1.  open terminal / command prompt
 2.  navigate to the folder the game is in using the cd command
-3.     run the game by typing      python3 Main.python3
+3.  run the game by typing      python3 Main.python3
 
 
+############################ 
 TO ADD ROOMS TO THE GAME
+############################ 
 
 edit the file     DataRooms.csv
 
@@ -25,3 +31,11 @@ If you go UP from this room you go to room Number 2
 You cannot go South, East, West or Down from this room (They have a 'None' Flag)
 
 
+############################ 
+Editing PlayerData.csv
+##########################
+
+Players can be added through the interface so there should be no need to manually edit this file to add Players
+
+If you want to clear out exiting players then clear all the data out of this file 
+however if you do this the current location / progress of each existing player will be lost

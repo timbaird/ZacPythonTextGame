@@ -1,6 +1,7 @@
 import csv
 from Player import Player
 from Room import Room
+import time
 
 class DataAccess:
     @staticmethod
@@ -57,12 +58,28 @@ class DataAccess:
     @staticmethod
     def SavePlayerList(PlayerList):
 
-        print("PlayerList")
-        print(PlayerList)
-
         with open('DataPlayers.csv', 'w',) as csvfile:
             writer = csv.writer(csvfile)
         
             for p in PlayerList:
-                writer.writerow([p[0], p[1], p[2]])
-                #print (p.name)
+                writer.writerow([p[0], p[1], int(p[2])])
+
+
+    @staticmethod
+    def SavePlayer(playerToSave):
+
+        # more theatrics
+        time.sleep(1)
+
+        # get list of all players
+        playerList = DataAccess.GetPlayerList()
+
+        # check again each player in the list
+        for p in playerList:
+            # when we find the relevant player then update thier location
+            if (p[0] == playerToSave.playerId):
+                p[2] = playerToSave.room.roomId
+                break
+
+        #write the updated player info to file
+        DataAccess.SavePlayerList(playerList)

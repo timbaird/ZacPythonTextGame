@@ -6,7 +6,7 @@ class Player:
 
 
     def look(self):
-        return self.room.Title() + "\n\n" + self.room.Description()    
+        return "-------------------\n" + self.room.Title() + "\n-------------------\n\n" + self.room.Description() + "\n\n-------------------\n\n" + self.room.GetExits() +  "\n\n-------------------"
 
     def move(self, newRoom):
         self.room = newRoom

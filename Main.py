@@ -1,5 +1,6 @@
 import time
 import os
+from DataAccess import DataAccess
 from Game import Game
 from Menu import Menu
 
@@ -28,11 +29,17 @@ while True:
 
     elif mainMenuChoice == "L": #load game
         # get the list of current players
-        playerList = Game.GetPlayerList()
-        # ask the user which player they want to play
-        loadPlayerChoice = Menu.GetPlayerChoice(playerList)
-        #run the game for that player
-        Game.Run(loadPlayerChoice)
+        playerList = DataAccess.GetPlayerList()
+
+        # deal with the case where there is no existing players
+        if len(playerList) == 0:
+            print("There are no existing games, starting a new game")
+            Game.NewGame()
+        else:
+            # ask the user which player they want to play
+            loadPlayerChoice = Menu.GetPlayerChoice(playerList)
+            #run the game for that player
+            Game.Run(loadPlayerChoice)
         
     else: # exit game
         os.system('clear')

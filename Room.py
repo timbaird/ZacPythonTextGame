@@ -34,6 +34,8 @@ class Room:
     else:
       self.down = down
     
+  def _str_(self):
+    return self.roomId
   
   def Description(self):
     return self.description
@@ -61,3 +63,49 @@ class Room:
 
   def Down(self):
     return self.down
+  
+  def GetExits(self):
+
+    exitList = ""
+
+    try:
+        int(self.north)
+        exitList += "North "
+    except:
+        exitList = exitList
+
+    try:
+        int(self.south)
+        exitList += "South "
+    except:
+        exitList = exitList
+    
+    try:
+        int(self.east)
+        exitList += "East "
+    except:
+        exitList = exitList
+
+    try:
+        int(self.west)
+        exitList += "West "
+    except:
+        exitList = exitList
+
+    try:
+        int(self.up)
+        exitList += "Up "
+    except:
+        exitList = exitList
+
+    try:
+        int(self.down)
+        exitList += "Down "
+    except:
+        exitList = exitList
+    
+    
+    if (len(exitList) == 0):
+      return "There are NO visible exits from this room"
+    else:
+      return "You can see exits in the following directions: " + exitList

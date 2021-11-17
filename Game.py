@@ -51,30 +51,27 @@ class Game:
         Game.Run(maxPlayerId + 1)
 
     @staticmethod
-    def GetPlayerList():
-        return DataAccess.GetPlayerList()
-
-    @staticmethod
     def Run(playerId):
         # load the nominated player
-
         Game.currentPlayer = DataAccess.LoadPlayer(playerId)
         
         # some theatrics
         os.system('clear')
         print("Loading " + Game.currentPlayer.name+ "'s Game")
+
         ## lengthen or shorten the start delay here
         start_delay = 4
         for i in range (1, start_delay):
             print(".")
             time.sleep(0.5)
         
+        # clear the screen after the game "loads"
         os.system('clear')
 
+        # display where the player currnetly is
         print(Game.currentPlayer.look())
 
-        # Game Loop
-
+        # Main Game Loop
         while True:
             newRoomId = None
             time.sleep(1)
@@ -85,6 +82,7 @@ class Game:
         
             # deal with en game
             if (action[0] == "Q" or action == "QUIT"):
+                DataAccess.SavePlayer(Game.currentPlayer)
                 Game.currentPlayer = None
                 Game.currentRoom = None
                 break
@@ -97,7 +95,7 @@ class Game:
                 os.system('clear')
                 Menu.DisplayAvailableActionsHelpList()
 
-            elif(action[0] == "M" or action[0, 3] == "MOVE"):
+            elif(action[0] == "M" or len(action) > 4 and action[0, 3] == "MOVE"):
                 os.system('clear')
                 actionsplit = action.split()
 
@@ -130,13 +128,18 @@ class Game:
                     Game.currentPlayer.move(newRoom)
                 except Exception as e:
                     #print (e)
-                    print("Sorry ... There is no way to go " + actionsplit[1])
+                    print("Sorry ... There is no way to go " + actionsplit[1] + "\n")
+                    print(Game.currentPlayer.look())
                     continue
 
                 os.system('clear')
                 print(Game.currentPlayer.look())
 
             else:
+                os.system('clear')
+                time.sleep(0.5)
                 print("Invalid Action\n")
+                time.sleep(0.5)
+                print(Game.currentPlayer.look())
                 continue
 

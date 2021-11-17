@@ -9,7 +9,7 @@ class DataAccess:
         with open('DataPlayers.csv') as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='"')
             for row in reader:
-                players.append([row[0], row[1]])
+                players.append([row[0], row[1], row[2]])
         return players
 
     @staticmethod
@@ -57,8 +57,12 @@ class DataAccess:
     @staticmethod
     def SavePlayerList(PlayerList):
 
+        print("PlayerList")
+        print(PlayerList)
+
         with open('DataPlayers.csv', 'w',) as csvfile:
             writer = csv.writer(csvfile)
         
             for p in PlayerList:
-                writer.writerow([p.playerId, p.name, p.room])
+                writer.writerow([p[0], p[1], p[2]])
+                #print (p.name)

@@ -34,20 +34,20 @@ class Game:
                 # check the name they entered against existsing names to ensure it is not already used
                 for p in currentPlayers:
                     # check to see if this is highest player id yet and track if it is
-                    if p.playerId > maxPlayerId:
-                        maxPlayerId = p.playerId
+                    if int(p[0]) > maxPlayerId:
+                        maxPlayerId = int(p[0])
                     # check the new name against the name of this player to see if the same
-                    if newName.lower() == p.name.lower():
+                    if newName.lower() == p[1].lower():
                         newName = ""
                         print("That name is either already being used, try a different one")
                         break
 
         # once valid name is entered
         # add a new player to the list with max player id + 1 as player id, starting in room 1
-        currentPlayers.append(Player(maxPlayerId + 1, newName, 1))
+        currentPlayers.append([maxPlayerId + 1, newName, 1])
 
+        #print(currentPlayers)
         DataAccess.SavePlayerList(currentPlayers)
-
         Game.Run(maxPlayerId + 1)
 
     @staticmethod

@@ -64,7 +64,6 @@ class DataAccess:
             for p in PlayerList:
                 writer.writerow([p[0], p[1], int(p[2])])
 
-
     @staticmethod
     def SavePlayer(playerToSave):
 

@@ -70,37 +70,37 @@ class Room:
 
     try:
         int(self.north)
-        exitList += "North "
+        exitList += "NORTH "
     except:
         exitList = exitList
 
     try:
         int(self.south)
-        exitList += "South "
+        exitList += "SOUTH "
     except:
         exitList = exitList
     
     try:
         int(self.east)
-        exitList += "East "
+        exitList += "EAST "
     except:
         exitList = exitList
 
     try:
         int(self.west)
-        exitList += "West "
+        exitList += "WEST "
     except:
         exitList = exitList
 
     try:
         int(self.up)
-        exitList += "Up "
+        exitList += "UP "
     except:
         exitList = exitList
 
     try:
         int(self.down)
-        exitList += "Down "
+        exitList += "DOWN "
     except:
         exitList = exitList
     

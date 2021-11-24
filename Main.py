@@ -21,6 +21,7 @@ for i in range (1, start_delay):
 while True:
 
     Menu.DisplayMainMenu()
+    # VALIDATION OF MENU CHOICE INPUT HAPPENS INSIDE THE Menu.GetMainMenuChoice() METHOD SO NOT NEEDED HERE.
     mainMenuChoice = Menu.GetMainMenuChoice()
         
     if mainMenuChoice == "N": # new game

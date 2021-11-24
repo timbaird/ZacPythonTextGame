@@ -41,7 +41,6 @@ class Menu:
 
         return valid_choices
 
-
     @staticmethod
     def GetPlayerChoice(players):
 

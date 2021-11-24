@@ -15,7 +15,7 @@ TO ADD ROOMS TO THE GAME
 
 edit the file     DataRooms.csv
 
-this file hold comma seperated values in the following order
+this file hold comma separated values in the following order
 
 Room Number, Room Title, Rm Description, Rm No North (Number of Rm to North or None), Rm No South, Rm No East, Rm No West, Rm No Up, Rm No Down 
 
